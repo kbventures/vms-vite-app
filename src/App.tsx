@@ -52,7 +52,9 @@ function App() {
 
   const deleteTodo = async (id: number) => {
     try {
-      await fetch(`http://localhost:3000/todos/${id}`, { method: "DELETE" });
+      await fetch(`https://hono-postgresql.onrender.com/todos${id}`, {
+        method: "DELETE",
+      });
       setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
     } catch (error) {
       console.error("Error deleting todo:", error);
